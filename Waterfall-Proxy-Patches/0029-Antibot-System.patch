@@ -222,8 +222,10 @@ new file mode 100644
 index 00000000..3f6e4186
 --- /dev/null
 +++ b/flamecord/src/main/java/dev/_2lstudios/antibot/AddressDataManager.java
-@@ -0,0 +1,25 @@
+@@ -0,0 +1,27 @@
 +package dev._2lstudios.antibot;
++
++import net.md_5.bungee.util.AddressUtil;
 +
 +import java.net.InetSocketAddress;
 +import java.net.SocketAddress;
@@ -235,7 +237,7 @@ index 00000000..3f6e4186
 +
 +    public AddressData getAddressData(final SocketAddress address) {
 +        final InetSocketAddress iNetSocketAddress = (InetSocketAddress) address;
-+        final String addressString = iNetSocketAddress.getHostString();
++        final String addressString = AddressUtil.sanitizeAddress(iNetSocketAddress);
 +        
 +        if (addressData.containsKey(addressString)) {
 +            return addressData.get(addressString);
